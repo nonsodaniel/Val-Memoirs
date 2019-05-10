@@ -6,14 +6,32 @@ class NewsContent extends Component {
     isClick: false
   };
 
-  handleView = () => {
-    alert("Hello world");
+  handleView = e => {
+    console.log(e.target.id);
+    let targetId = e.target.id;
+    let localData = localStorage.getItem("postArr");
+    localData = JSON.parse(localData);
+
+    let filteredId = localData.filter(o => {
+      console.log(o.id);
+      return o.id === targetId;
+    });
+    console.log("Post array", localData, filteredId);
   };
 
   render() {
     return (
       <div className="album py-5 bg-light">
         <div className="container">
+          <div class="section-heade text-center">
+            <h2>
+              Care About{" "}
+              <i className="font-italic text-uppercase text-bold text-danger">
+                Memories?
+              </i>
+            </h2>
+            <p>Here are some of our User's Memories</p>
+          </div>
           <div className="row">
             <div className="col-md-4">
               <div className="card mb-4 shadow-sm">
@@ -45,6 +63,7 @@ class NewsContent extends Component {
                         type="button"
                         className="btn btn-sm btn-outline-secondary"
                         onClick={this.handleView}
+                        Id="79674fe1-9085-4f11-a5b5-763d40367cde"
                       >
                         View
                       </button>
@@ -82,6 +101,7 @@ class NewsContent extends Component {
                   <span className="row">
                     <small className="text-muted">
                       <i className="material-icons">scheduler</i> 3 Days Ago
+                      <i className="material-icons">favorite_border</i>
                     </small>
                   </span>
                   <p className="card-text" style={{ textAlign: "center" }}>
@@ -98,6 +118,7 @@ class NewsContent extends Component {
                         type="button"
                         className="btn btn-sm btn-outline-secondary"
                         onClick={this.handleView}
+                        Id="ced05147-6953-497e-bbd2-4a20f16b8329"
                       >
                         View
                       </button>
