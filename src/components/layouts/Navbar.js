@@ -96,7 +96,7 @@ class Navbar extends Component {
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">
-                  Modal title
+                  Create Your Story
                 </h5>
                 <button
                   type="button"
@@ -111,7 +111,37 @@ class Navbar extends Component {
                 <form>
                   <div class="form-group">
                     <label for="recipient-name" class="col-form-label">
-                      Recipient:
+                      First Name:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="recipient-name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">
+                      Last Name:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="recipient-name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">
+                      User Name:
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="recipient-name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">
+                      Headline:
                     </label>
                     <input
                       type="text"
@@ -121,7 +151,7 @@ class Navbar extends Component {
                   </div>
                   <div class="form-group">
                     <label for="message-text" class="col-form-label">
-                      Message:
+                      Add Your Story:
                     </label>
                     <textarea class="form-control" id="message-text" />
                   </div>
@@ -130,13 +160,13 @@ class Navbar extends Component {
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn btn-danger"
                   data-dismiss="modal"
                 >
                   Close
                 </button>
                 <button type="button" class="btn btn-primary">
-                  Save changes
+                  Submit Story
                 </button>
               </div>
             </div>
