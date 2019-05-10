@@ -25,7 +25,7 @@ class NewsContent extends Component {
         <div className="container">
           <div class="section-heade text-center">
             <h2>
-              Care About{" "}
+              Care About
               <i className="font-italic text-uppercase text-bold text-danger">
                 Memories?
               </i>
