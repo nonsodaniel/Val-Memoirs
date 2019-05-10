@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Dp from "../style/images/admin_dp.png";
 
-class Navbar extends Component {
+class AddEvent extends Component {
   render() {
     return (
       <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="#">
-            Val Memorais
+            Navbar
           </a>
           <button
             class="navbar-toggler"
@@ -28,11 +28,7 @@ class Navbar extends Component {
                   Home <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li
-                class="nav-item"
-                data-toggle="modal"
-                data-target="#exampleModalLong"
-              >
+              <li class="nav-item">
                 <a class="nav-link" href="#">
                   Link
                 </a>
@@ -84,67 +80,9 @@ class Navbar extends Component {
             </form>
           </div>
         </nav>
-        <div
-          class="modal fade"
-          id="exampleModalLong"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLongTitle"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                  Modal title
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">
-                      Recipient:
-                    </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="recipient-name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="message-text" class="col-form-label">
-                      Message:
-                    </label>
-                    <textarea class="form-control" id="message-text" />
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Save changes
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </header>
     );
   }
 }
 
-export default Navbar;
+export default AddEvent;
