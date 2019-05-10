@@ -81,7 +81,7 @@ class NewsContent extends Component {
                 <div class="card-body">
                   <span className="row">
                     <small class="text-muted">
-                      <i className="material-icons">list</i> 3 Days Ago
+                      <i className="material-icons">scheduler</i> 3 Days Ago
                     </small>
                   </span>
                   <p class="card-text" style={{ textAlign: "center" }}>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Dp from "../style/images/admin_dp.png";
+import CreateStory from "../layouts/CreateStory";
 
 class Navbar extends Component {
   render() {
@@ -84,94 +85,7 @@ class Navbar extends Component {
             </form>
           </div>
         </nav>
-        <div
-          class="modal fade"
-          id="exampleModalLong"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLongTitle"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                  Create Your Story
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">
-                      First Name:
-                    </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="recipient-name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">
-                      Last Name:
-                    </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="recipient-name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">
-                      User Name:
-                    </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="recipient-name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">
-                      Headline:
-                    </label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="recipient-name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="message-text" class="col-form-label">
-                      Add Your Story:
-                    </label>
-                    <textarea class="form-control" id="message-text" />
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Submit Story
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CreateStory />
       </header>
     );
   }
