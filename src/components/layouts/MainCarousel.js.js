@@ -8,9 +8,8 @@ class MainCarousel extends Component {
         <div class="container">
           <h1 class="jumbotron-heading">My Carousel Point</h1>
           <p class="lead text-muted">
-            Something short and leading about the collection below—its contents,
-            the creator, etc. Make it short and sweet, but not too short so
-            folks don’t simply skip over it entirely.
+            Please bear with me this is just my smallest way of representing
+            this concept
           </p>
           <p>
             <a href="#" class="btn btn-primary my-2">
