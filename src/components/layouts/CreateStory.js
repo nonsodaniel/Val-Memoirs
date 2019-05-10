@@ -8,7 +8,6 @@ class CreateStory extends Component {
     this.setState({ [e.target.id]: e.target.value });
     console.log(this.state);
   };
-
   handleSubmit = e => {
     e.preventDefault();
     let postArr  =  [];
@@ -23,7 +22,17 @@ class CreateStory extends Component {
     if(typeof(Storage) !== "undefined") {
         if (localStorage.getItem('postArr') && localStorage.getItem('postArr').length > 0)
             postArr = JSON.parse(localStorage.getItem('postArr'));
-          let postObj = this.state;
+          let postState = this.state;
+
+            let postObj = {
+              id: uuid(),
+              firstName : postState.firstName,
+              lastName : postState.lastName,
+              userName : postState.userName,
+              headline : postState.headline,
+              story : document.getElementById("story").value,
+              likes: 0
+            }
 
         postArr.push(postObj);
 
@@ -40,89 +49,89 @@ class CreateStory extends Component {
   render() {
     return (
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModalLong"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLongTitle"
         aria-hidden="true"
       >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLongTitle">
                 Create Your Story
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">
+                <div className="form-group">
+                  <label htmlFor="recipient-name" className="col-form-label">
                     First Name:
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handleChange}
                     id="firstName"
                   />
                 </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">
+                <div className="form-group">
+                  <label htmlFor="recipient-name" className="col-form-label">
                     Last Name:
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handleChange}
                     id="lastName"
                   />
                 </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">
+                <div className="form-group">
+                  <label htmlFor="recipient-name" className="col-form-label">
                     User Name:
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handleChange}
                     id="userName"
                   />
                 </div>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">
+                <div className="form-group">
+                  <label htmlFor="recipient-name" className="col-form-label">
                     Headline:
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handleChange}
                     id="headline"
                   />
                 </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">
+                <div className="form-group">
+                  <label htmlFor="message-text" className="col-form-label">
                     Add Your Story:
                   </label>
-                  <textarea class="form-control" id="story" />
+                  <textarea className="form-control" id="story" />
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
+            <div className="modal-footer">
+              <button type="button" className="btn btn-danger" data-dismiss="modal">
                 Close
               </button>
               <button
                 type="button"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 onClick={this.handleSubmit}
               >
                 Submit Story

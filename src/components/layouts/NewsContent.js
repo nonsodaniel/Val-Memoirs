@@ -12,13 +12,13 @@ class NewsContent extends Component {
 
   render() {
     return (
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
+      <div className="album py-5 bg-light">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card mb-4 shadow-sm">
                 <svg
-                  class="bd-placeholder-img card-img-top"
+                  className="bd-placeholder-img card-img-top"
                   width="100%"
                   height="225"
                   xmlns="http://www.w3.org/2000/svg"
@@ -33,37 +33,37 @@ class NewsContent extends Component {
                     Thumbnail
                   </text>
                 </svg>
-                <div class="card-body">
-                  <p class="card-text">
+                <div className="card-body">
+                  <p className="card-text">
                     This is jst the first stage of my Demo App. Please bear with
                     me for any Ononviniences and do not forget to keep in touch
                     with us
                   </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        className="btn btn-sm btn-outline-secondary"
                         onClick={this.handleView}
                       >
                         View
                       </button>
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        className="btn btn-sm btn-outline-secondary"
                       >
                         Other Actions
                       </button>
                     </div>
-                    <small class="text-muted">3 Days</small>
+                    <small className="text-muted">3 Days</small>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4" id="random">
-              <div class="card mb-4 shadow-sm">
+            <div className="col-md-4" id="random">
+              <div className="card mb-4 shadow-sm">
                 <svg
-                  class="bd-placeholder-img card-img-top"
+                  className="bd-placeholder-img card-img-top"
                   width="100%"
                   height="225"
                   xmlns="http://www.w3.org/2000/svg"
@@ -78,32 +78,32 @@ class NewsContent extends Component {
                     Thumbnail
                   </text>
                 </svg>
-                <div class="card-body">
+                <div className="card-body">
                   <span className="row">
-                    <small class="text-muted">
+                    <small className="text-muted">
                       <i className="material-icons">scheduler</i> 3 Days Ago
                     </small>
                   </span>
-                  <p class="card-text" style={{ textAlign: "center" }}>
+                  <p className="card-text" style={{ textAlign: "center" }}>
                     <b>My News Title here</b>
                   </p>
-                  <p class="card-text">
+                  <p className="card-text">
                     This is jst the first stage of my Demo App. Please bear with
                     me for any Ononviniences and do not forget to keep in touch
                     with us
                   </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        className="btn btn-sm btn-outline-secondary"
                         onClick={this.handleView}
                       >
                         View
                       </button>
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        className="btn btn-sm btn-outline-secondary"
                       >
                         Other Actions
                       </button>
@@ -112,10 +112,10 @@ class NewsContent extends Component {
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
+            <div className="col-md-4">
+              <div className="card mb-4 shadow-sm">
                 <svg
-                  class="bd-placeholder-img card-img-top"
+                  className="bd-placeholder-img card-img-top"
                   width="100%"
                   height="225"
                   xmlns="http://www.w3.org/2000/svg"
@@ -130,29 +130,29 @@ class NewsContent extends Component {
                     Thumbnail
                   </text>
                 </svg>
-                <div class="card-body">
-                  <p class="card-text">
+                <div className="card-body">
+                  <p className="card-text">
                     This is jst the first stage of my Demo App. Please bear with
                     me for any Ononviniences and do not forget to keep in touch
                     with us
                   </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        className="btn btn-sm btn-outline-secondary"
                         onClick={this.handleView}
                       >
                         View
                       </button>
                       <button
                         type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        className="btn btn-sm btn-outline-secondary"
                       >
                         Other Actions
                       </button>
                     </div>
-                    <small class="text-muted">3 Days</small>
+                    <small className="text-muted">3 Days</small>
                   </div>
                 </div>
               </div>

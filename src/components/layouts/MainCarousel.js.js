@@ -36,7 +36,7 @@ class MainCarousel extends Component {
               style={{ height: "400px" }}
               alt="First slide"
             />
-            <div class="carousel-caption d-none d-md-block">
+            <div className="carousel-caption d-none d-md-block">
               <h5>Title</h5>
               <p>We are global</p>
             </div>
