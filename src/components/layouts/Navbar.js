@@ -67,6 +67,16 @@ class Navbar extends Component {
               data-toggle="modal"
               data-target="#exampleModalLong"
             >
+              {/* <i
+                className="material-icons"
+                style={{
+                  color: "rgb(247, 21, 21)",
+                  cursor: "pointer"
+                  // fontSize: "37px"
+                }}
+              >
+                favorite
+              </i> */}
               Create Your Awesome Story
             </button>
           </div>

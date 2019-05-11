@@ -18,14 +18,18 @@ class MainCarousel extends Component {
       page = 1,
       query = `valentine`;
 
-    fetch(`${url}??page=${page}&query=${query}&client_id=${clientId}`)
+    // fetch(`${url}??page=${page}&query=${query}&client_id=${clientId}`)
+    fetch(
+      `https://api.unsplash.com/search/photos/?query=lovers&&page=2&count=5&client_id=30e7eae3f47846ed9a7904b0f1b52be616a4c69d6c847d59d3ca59391224c7fd`
+    )
       .then(res => {
         return res.json();
       })
       .then(data => {
-        // console.log("Data", data);
-        let slider = data.slice(0, 5);
+        console.log("Data", data);
+        let slider = data.results.slice(0, 5).reverse();
         localStorage.setItem("Sliders", JSON.stringify(slider));
+        console.log("Slider", slider);
         this.setState({ slider });
       });
   }
@@ -34,18 +38,18 @@ class MainCarousel extends Component {
     // console.log(this.state.slider[0].id);
     let localSlider = JSON.parse(localStorage.getItem("Sliders"));
     console.log("My slides", localSlider);
-    let slider1 = localSlider[0].urls.full;
-    let slider2 = localSlider[1].urls.full;
-    let slider3 = localSlider[2].urls.full;
-    let slider4 = localSlider[3].urls.full;
-    let slider5 = localSlider[4].urls.full;
-    console.log(slider1);
+    let slider1 = localSlider ? localSlider[0].urls.regular : Couple1;
+    let slider2 = localSlider ? localSlider[1].urls.regular : Couple2;
+    let slider3 = localSlider ? localSlider[2].urls.regular : Couple3;
+    let slider4 = localSlider ? localSlider[3].urls.regular : Couple4;
+    let slider5 = localSlider ? localSlider[4].urls.regular : Couple5;
+    // console.log(slider1);
     return (
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
         data-ride="carousel"
-        style={{ height: "400px" }}
+        style={{ height: "560px" }}
       >
         <ol className="carousel-indicators">
           <li
@@ -64,7 +68,7 @@ class MainCarousel extends Component {
             <img
               className="d-block w-100"
               src={slider1}
-              style={{ height: "400px" }}
+              style={{ height: "560px" }}
               alt="First slide"
             />
             <div className="carousel-caption d-none d-md-block">
@@ -76,7 +80,7 @@ class MainCarousel extends Component {
             <img
               className="d-block w-100"
               src={slider2}
-              style={{ height: "400px" }}
+              style={{ height: "560px" }}
               alt="Second slide"
             />
           </div>
@@ -84,7 +88,7 @@ class MainCarousel extends Component {
             <img
               className="d-block w-100"
               src={slider3}
-              style={{ height: "400px" }}
+              style={{ height: "560px" }}
               alt="Third slide"
             />
           </div>
@@ -92,7 +96,7 @@ class MainCarousel extends Component {
             <img
               className="d-block w-100"
               src={slider4}
-              style={{ height: "400px" }}
+              style={{ height: "560px" }}
               alt="Fourth slide"
             />
           </div>
@@ -100,7 +104,7 @@ class MainCarousel extends Component {
             <img
               className="d-block w-100"
               src={slider5}
-              style={{ height: "400px" }}
+              style={{ height: "560px" }}
               alt="Fifth slide"
             />
           </div>

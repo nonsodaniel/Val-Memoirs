@@ -13,7 +13,7 @@
   width: 120px;
   height: 120px;
   top: 35%;
-  border: 5px solid #262626;
+  border: 5px solid red;
   z-index: 1;
   animation: animar 2.5s linear infinite;
 }
@@ -24,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #262626;
+  background: red;
   animation: animarbg 2.5s linear infinite;
 }
 

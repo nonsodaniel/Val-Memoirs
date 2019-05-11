@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import NewsDetail from "../events/EventDetail";
-
+import "./css/search.css";
 class NewsContent extends Component {
   state = {
     isClick: false,
@@ -18,10 +18,13 @@ class NewsContent extends Component {
     console.log(e.target.id);
     let targetId = e.target.id;
 
-    let filteredId = localData.filter(o => {
-      return o.id === targetId;
+    let filteredId = localData.map(o => {
+      if (o.id === targetId) {
+        console.log("Yea", o);
+      }
+      return o;
     });
-
+    return console.log("Mine", filteredId);
     let like_target = filteredId[0].likes;
     like_target = parseInt(like_target) + 1;
     // document.getElementsByClassName("hanldeView").click();
@@ -122,26 +125,74 @@ class NewsContent extends Component {
     console.log("storyDetails", storyDetails);
 
     return (
-      <div className="album py-5 bg-light">
-        <div className="container">
-          <div className="section-heade text-center">
-            <h2>
-              Care About{" "}
-              <b
-                className=" text-uppercase text-bold text-danger"
-                style={{ fontSize: " 35px", fontWeight: "900" }}
-              >
-                Memories?
-              </b>
-            </h2>
-            <p>Here are some of our User's Memories</p>
+      <Fragment>
+        <section class="search-sec">
+          <div class="container">
+            <form action="#" method="post" novalidate="novalidate">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                      <input
+                        type="text"
+                        class="form-control search-slt"
+                        placeholder="Enter Pickup City"
+                      />
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                      <input
+                        type="text"
+                        class="form-control search-slt"
+                        placeholder="Enter Drop City"
+                      />
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                      <select
+                        class="form-control search-slt"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option>Select Vehicle</option>
+                        <option>Example one</option>
+                        <option>Example one</option>
+                        <option>Example one</option>
+                        <option>Example one</option>
+                        <option>Example one</option>
+                        <option>Example one</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                      <button type="button" class="btn btn-danger wrn-btn">
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
-          <br />
-          <br />
-          <br />
-          <div className="row">{storyList}</div>
+        </section>
+
+        <div className="album py-5 bg-light">
+          <div className="container">
+            <div className="section-heade text-center">
+              <h2>
+                Care About{" "}
+                <b
+                  className=" text-uppercase text-bold text-danger"
+                  style={{ fontSize: " 35px", fontWeight: "900" }}
+                >
+                  Memories?
+                </b>
+              </h2>
+              <p>Here are some of our User's Memories</p>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div className="row">{storyList}</div>
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
