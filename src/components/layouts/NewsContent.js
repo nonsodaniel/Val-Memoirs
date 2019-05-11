@@ -11,7 +11,7 @@ class NewsContent extends Component {
 
   componentDidMount() {
     let localData = JSON.parse(localStorage.getItem("localDb"));
-    // console.log("Story box", localData);
+    console.log("Story box", localData);
     this.setState({ storyBox: localData });
   }
 
@@ -20,16 +20,17 @@ class NewsContent extends Component {
     console.log(e.target.id);
     let targetId = e.target.id;
 
-    let filteredId = localData.map(o => {
+    let storyBox = localData.map(o => {
+      console.log();
       if (o.id === targetId) {
         console.log("Yea", o);
+        o.likes = parseInt(o.likes) + 1;
       }
       return o;
     });
-    return console.log("Mine", filteredId);
-    let like_target = filteredId[0].likes;
-    like_target = parseInt(like_target) + 1;
-    // document.getElementsByClassName("hanldeView").click();
+    localStorage.setItem("localDb", JSON.stringify(storyBox));
+    this.setState({ storyBox });
+    return console.log("Mine", storyBox);
   };
 
   handleView = e => {
@@ -62,6 +63,8 @@ class NewsContent extends Component {
 
   render() {
     // let storyDetail = this.state.storyBox ? this.state.storyBox : [];
+    let state = this.state;
+    console.log("liks", state);
     let localData = JSON.parse(localStorage.getItem("localDb"));
     let storyDetail = localData ? localData || localData === null : [];
     // console.log("Story detail", localData);
@@ -102,15 +105,17 @@ class NewsContent extends Component {
                   <button
                     type="button"
                     className="btn btn-sm btn-outline-secondary"
+                    onClick={this.handleLike}
+                    id={o.id}
                   >
                     <i
                       className="material-icons"
                       id={o.id}
                       style={{ color: "#bf1717", cursor: "pointer" }}
-                      onClick={this.handleLike}
                     >
                       favorite
-                    </i>
+                    </i>{" "}
+                    <sup style={{ fontSize: "16px" }}>{o.likes}</sup>
                   </button>
                 </div>
               </div>
@@ -190,8 +195,9 @@ class NewsContent extends Component {
             <div className="row">{storyList}</div>
           </div>
         </div>
+        <br />
 
-        <h4 className="text-centre" />
+        <h4 className="text-center">Some Amazing Stories</h4>
 
         <div class="accordian" style={{ height: "200px" }}>
           <ul style={{ height: "400px" }}>
