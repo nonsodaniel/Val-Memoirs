@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./css/footer.css";
 
 const Footer = props => {
@@ -61,50 +61,24 @@ const Footer = props => {
             <h5>Links</h5>
             <ul className="nav-list">
               <li>
-                <a href="#">About</a>
+                <a href="/">About</a>
               </li>
               <li>
-                <a href="#">Projects</a>
+                <a href="/">Projects</a>
               </li>
               <li>
-                <a href="#">Blog</a>
+                <a href="/">Blog</a>
               </li>
               <li>
-                <a href="#">Contacts</a>
+                <a href="/">Contacts</a>
               </li>
               <li>
-                <a href="#">Pricing</a>
+                <a href="/">Pricing</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      {/* <div className="row no-gutters social-container">
-        <div className="col">
-          <a className="social-inner" href="#">
-            <span className="icon mdi mdi-facebook" />
-            <span>Facebook</span>
-          </a>
-        </div>
-        <div className="col">
-          <a className="social-inner" href="#">
-            <span className="icon mdi mdi-instagram" />
-            <span>instagram</span>
-          </a>
-        </div>
-        <div className="col">
-          <a className="social-inner" href="#">
-            <span className="icon mdi mdi-twitter" />
-            <span>twitter</span>
-          </a>
-        </div>
-        <div className="col">
-          <a className="social-inner" href="#">
-            <span className="icon mdi mdi-youtube-play" />
-            <span>google</span>
-          </a>
-        </div> 
-      </div>*/}
     </footer>
   );
 };

@@ -1,184 +1,145 @@
 import React, { Component } from "react";
-import Dp from "../style/images/admin_dp.png";
+import NewsDetail from "../events/EventDetail";
 
 class NewsContent extends Component {
   state = {
-    isClick: false
+    isClick: false,
+    storyBox: []
+  };
+
+  componentDidMount() {
+    let localData = JSON.parse(localStorage.getItem("localDb"));
+    // console.log("Story box", localData);
+    this.setState({ storyBox: localData });
+  }
+
+  handleLike = e => {
+    let localData = this.state.storyBox;
+    console.log(e.target.id);
+    let targetId = e.target.id;
+
+    let filteredId = localData.filter(o => {
+      return o.id === targetId;
+    });
+
+    let like_target = filteredId[0].likes;
+    like_target = parseInt(like_target) + 1;
+    // document.getElementsByClassName("hanldeView").click();
   };
 
   handleView = e => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let targetId = e.target.id;
-    let localData = localStorage.getItem("postArr");
+    let localData = localStorage.getItem("localDb");
     localData = JSON.parse(localData);
 
-    let filteredId = localData.filter(o => {
-      console.log(o.id);
+    let filteredNews = localData.filter(o => {
+      // console.log(o.id);
       return o.id === targetId;
     });
-    console.log("Post array", localData, filteredId);
+    console.log("Post array", filteredNews);
+    this.setState({ newsDetail: filteredNews[0] });
+  };
+
+  truncateStory = (str, length, ending) => {
+    if (length === null) {
+      length = 100;
+    }
+    if (ending === null) {
+      ending = "...";
+    }
+    if (str.length > length) {
+      return str.substring(0, length - ending.length) + ending;
+    } else {
+      return str;
+    }
   };
 
   render() {
+    // let storyDetail = this.state.storyBox ? this.state.storyBox : [];
+    let localData = JSON.parse(localStorage.getItem("localDb"));
+    let storyDetail = localData ? localData || localData === null : [];
+    // console.log("Story detail", localData);
+    let storyList = storyDetail ? (
+      storyDetail.map((o, i) => (
+        <div className="col-md-4" id="random" key={o.id}>
+          <div className="card mb-4 shadow-sm">
+            <img src={o.banner} alt="..." className="img-thumbnail" />
+            <div className="card-body">
+              <div className="row">
+                <div className="col-md-6">
+                  <small className="text-muted">
+                    <i className="material-icons">scheduler</i> 3 Days Ago
+                  </small>
+                </div>
+                <div className="col-md-6">
+                  by {o.firstName} {o.lastName}
+                </div>
+              </div>
+              <p className="card-text" style={{ textAlign: "center" }}>
+                <b>{o.headline}</b>
+              </p>
+              <p className="card-text story">
+                {this.truncateStory(o.story, 100, "...")}
+              </p>
+              <div className="d-flex justify-content-between align-items-center">
+                <div className="btn-group">
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-outline-secondary handleView"
+                    onClick={this.handleView}
+                    id={o.id}
+                    data-toggle="modal"
+                    data-target="#newsDetail"
+                  >
+                    View
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-outline-secondary"
+                  >
+                    <i
+                      className="material-icons"
+                      id={o.id}
+                      style={{ color: "#bf1717", cursor: "pointer" }}
+                      onClick={this.handleLike}
+                    >
+                      favorite
+                    </i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <NewsDetail data={this.state.newsDetail} />
+        </div>
+      ))
+    ) : (
+      <div className="empty-story">No story to show</div>
+    );
+
+    let storyDetails = this.state.newsDetail;
+    console.log("storyDetails", storyDetails);
+
     return (
       <div className="album py-5 bg-light">
         <div className="container">
-          <div class="section-heade text-center">
+          <div className="section-heade text-center">
             <h2>
-              Care About
-              <i className="font-italic text-uppercase text-bold text-danger">
+              Care About{" "}
+              <b
+                className=" text-uppercase text-bold text-danger"
+                style={{ fontSize: " 35px", fontWeight: "900" }}
+              >
                 Memories?
-              </i>
+              </b>
             </h2>
             <p>Here are some of our User's Memories</p>
           </div>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="card mb-4 shadow-sm">
-                <svg
-                  className="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid slice"
-                  focusable="false"
-                  role="img"
-                  aria-label="Placeholder: Thumbnail"
-                >
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c" />
-                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                    Thumbnail
-                  </text>
-                </svg>
-                <div className="card-body">
-                  <p className="card-text">
-                    This is jst the first stage of my Demo App. Please bear with
-                    me for any Ononviniences and do not forget to keep in touch
-                    with us
-                  </p>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div className="btn-group">
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                        onClick={this.handleView}
-                        Id="79674fe1-9085-4f11-a5b5-763d40367cde"
-                      >
-                        View
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                      >
-                        Other Actions
-                      </button>
-                    </div>
-                    <small className="text-muted">3 Days</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4" id="random">
-              <div className="card mb-4 shadow-sm">
-                <svg
-                  className="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid slice"
-                  focusable="false"
-                  role="img"
-                  aria-label="Placeholder: Thumbnail"
-                >
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c" />
-                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                    Thumbnail
-                  </text>
-                </svg>
-                <div className="card-body">
-                  <span className="row">
-                    <small className="text-muted">
-                      <i className="material-icons">scheduler</i> 3 Days Ago
-                      <i className="material-icons">favorite_border</i>
-                    </small>
-                  </span>
-                  <p className="card-text" style={{ textAlign: "center" }}>
-                    <b>My News Title here</b>
-                  </p>
-                  <p className="card-text">
-                    This is jst the first stage of my Demo App. Please bear with
-                    me for any Ononviniences and do not forget to keep in touch
-                    with us
-                  </p>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div className="btn-group">
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                        onClick={this.handleView}
-                        Id="ced05147-6953-497e-bbd2-4a20f16b8329"
-                      >
-                        View
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                      >
-                        Other Actions
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card mb-4 shadow-sm">
-                <svg
-                  className="bd-placeholder-img card-img-top"
-                  width="100%"
-                  height="225"
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid slice"
-                  focusable="false"
-                  role="img"
-                  aria-label="Placeholder: Thumbnail"
-                >
-                  <title>Placeholder</title>
-                  <rect width="100%" height="100%" fill="#55595c" />
-                  <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                    Thumbnail
-                  </text>
-                </svg>
-                <div className="card-body">
-                  <p className="card-text">
-                    This is jst the first stage of my Demo App. Please bear with
-                    me for any Ononviniences and do not forget to keep in touch
-                    with us
-                  </p>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div className="btn-group">
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                        onClick={this.handleView}
-                      >
-                        View
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-sm btn-outline-secondary"
-                      >
-                        Other Actions
-                      </button>
-                    </div>
-                    <small className="text-muted">3 Days</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <br />
+          <br />
+          <br />
+          <div className="row">{storyList}</div>
         </div>
       </div>
     );

@@ -7,7 +7,17 @@ class Navbar extends Component {
     return (
       <header>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">
+          <i
+            className="material-icons"
+            style={{
+              color: "rgb(247, 21, 21)",
+              cursor: "pointer",
+              fontSize: "37px"
+            }}
+          >
+            favorite
+          </i>
+          <a className="navbar-brand" href="#" style={{ fontWeight: "500" }}>
             Val Memorais
           </a>
           <button
@@ -29,15 +39,6 @@ class Navbar extends Component {
                   Home <span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li
-                className="nav-item"
-                data-toggle="modal"
-                data-target="#exampleModalLong"
-              >
-                <a className="nav-link" href="#">
-                  Link
-                </a>
-              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -48,12 +49,9 @@ class Navbar extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Account
                 </a>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
                   <a className="dropdown-item" href="#">
                     Another action
                   </a>
@@ -63,24 +61,14 @@ class Navbar extends Component {
                   </a>
                 </div>
               </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#">
-                  Disabled
-                </a>
-              </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">
-              <input
-                className="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
               <button
-                className="btn btn-outline-primary my-2 my-sm-0"
-                type="submit"
+                className="btn btn-outline-danger my-2 my-sm-0"
+                data-toggle="modal"
+                data-target="#exampleModalLong"
               >
-                Search
+                Create Your Awesome Story
               </button>
             </form>
           </div>
