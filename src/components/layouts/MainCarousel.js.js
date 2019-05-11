@@ -16,11 +16,10 @@ class MainCarousel extends Component {
     let url = `https://api.unsplash.com/photos/`,
       clientId = `30e7eae3f47846ed9a7904b0f1b52be616a4c69d6c847d59d3ca59391224c7fd`,
       page = 1,
-      query = `valentine`;
-
-    // fetch(`${url}??page=${page}&query=${query}&client_id=${clientId}`)
+      count = 5,
+      query = `love`;
     fetch(
-      `https://api.unsplash.com/search/photos/?query=lovers&&page=2&count=5&client_id=30e7eae3f47846ed9a7904b0f1b52be616a4c69d6c847d59d3ca59391224c7fd`
+      `https://api.unsplash.com/search/photos/?query=${query}&page=${page}&count=${count}&client_id=${clientId}`
     )
       .then(res => {
         return res.json();

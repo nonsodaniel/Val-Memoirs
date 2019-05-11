@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import NewsDetail from "../events/EventDetail";
 import "./css/search.css";
+import "./css/user.css";
+
 class NewsContent extends Component {
   state = {
     isClick: false,
@@ -152,8 +154,8 @@ class NewsContent extends Component {
                         id="exampleFormControlSelect1"
                       >
                         <option>Select Stories</option>
-                        <option>Love story</option>
-                        <option> Romance story</option>
+                        <option id="love">Love story</option>
+                        <option id="romance"> Romance story</option>
                       </select>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -188,6 +190,108 @@ class NewsContent extends Component {
             <div className="row">{storyList}</div>
           </div>
         </div>
+
+        <h4 className="text-centre" />
+
+        <div class="accordian" style={{ height: "200px" }}>
+          <ul style={{ height: "400px" }}>
+            <li>
+              <div class="image_title">
+                <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                  KungFu Panda
+                </a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"
+                />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                  Toy Story 2
+                </a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg"
+                />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                  Wall-E
+                </a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/00kih8g.jpg"
+                />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Up</a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg"
+                />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Cars 2</a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"
+                />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Cars 2</a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"
+                />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Cars 2</a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"
+                />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Cars 2</a>
+              </div>
+              <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+                <img
+                  alt="john doe"
+                  src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <br />
       </Fragment>
     );
   }
