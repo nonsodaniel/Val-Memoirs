@@ -62,15 +62,13 @@ class Navbar extends Component {
                 </div>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
-              <button
-                className="btn btn-outline-danger my-2 my-sm-0"
-                data-toggle="modal"
-                data-target="#exampleModalLong"
-              >
-                Create Your Awesome Story
-              </button>
-            </form>
+            <button
+              className="btn btn-outline-danger my-2 my-sm-0"
+              data-toggle="modal"
+              data-target="#exampleModalLong"
+            >
+              Create Your Awesome Story
+            </button>
           </div>
         </nav>
         <CreateStory />

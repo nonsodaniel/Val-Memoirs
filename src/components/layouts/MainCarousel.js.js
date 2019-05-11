@@ -8,7 +8,38 @@ import Couple4 from "./images/couple 2.jpg";
 import Couple5 from "./images/couple 6.jpg";
 
 class MainCarousel extends Component {
+  state = {
+    slider: []
+  };
+
+  componentDidMount() {
+    let url = `https://api.unsplash.com/photos/`,
+      clientId = `30e7eae3f47846ed9a7904b0f1b52be616a4c69d6c847d59d3ca59391224c7fd`,
+      page = 1,
+      query = `valentine`;
+
+    fetch(`${url}??page=${page}&query=${query}&client_id=${clientId}`)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        // console.log("Data", data);
+        let slider = data.slice(0, 5);
+        localStorage.setItem("Sliders", JSON.stringify(slider));
+        this.setState({ slider });
+      });
+  }
+
   render() {
+    // console.log(this.state.slider[0].id);
+    let localSlider = JSON.parse(localStorage.getItem("Sliders"));
+    console.log("My slides", localSlider);
+    let slider1 = localSlider[0].urls.full;
+    let slider2 = localSlider[1].urls.full;
+    let slider3 = localSlider[2].urls.full;
+    let slider4 = localSlider[3].urls.full;
+    let slider5 = localSlider[4].urls.full;
+    console.log(slider1);
     return (
       <div
         id="carouselExampleIndicators"
@@ -32,7 +63,7 @@ class MainCarousel extends Component {
           <div className="carousel-item active">
             <img
               className="d-block w-100"
-              src={Couple1}
+              src={slider1}
               style={{ height: "400px" }}
               alt="First slide"
             />
@@ -44,7 +75,7 @@ class MainCarousel extends Component {
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src={Couple2}
+              src={slider2}
               style={{ height: "400px" }}
               alt="Second slide"
             />
@@ -52,7 +83,7 @@ class MainCarousel extends Component {
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src={Couple3}
+              src={slider3}
               style={{ height: "400px" }}
               alt="Third slide"
             />
@@ -60,7 +91,7 @@ class MainCarousel extends Component {
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src={Couple4}
+              src={slider4}
               style={{ height: "400px" }}
               alt="Fourth slide"
             />
@@ -68,7 +99,7 @@ class MainCarousel extends Component {
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src={Couple5}
+              src={slider5}
               style={{ height: "400px" }}
               alt="Fifth slide"
             />
