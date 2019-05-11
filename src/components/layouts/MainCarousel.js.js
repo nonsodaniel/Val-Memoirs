@@ -64,19 +64,19 @@ class MainCarousel extends Component {
           <li data-target="#carouselExampleIndicators" data-slide-to="5" />
         </ol>
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          <div className="carousel-item ">
             <img
               className="d-block w-100"
               src={slider1}
               style={{ height: "560px" }}
               alt="First slide"
             />
-            <div className="carousel-caption d-none d-md-block">
+            {/* <div className="carousel-caption d-none d-md-block">
               <h5>Title</h5>
               <p>We are global</p>
-            </div>
+            </div> */}
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item active">
             <img
               className="d-block w-100"
               src={slider2}
